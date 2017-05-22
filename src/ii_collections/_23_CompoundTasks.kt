@@ -19,7 +19,7 @@ fun Shop.getNumberOfTimesProductWasOrdered(product: Product): Int {
 
     // close, but fails last test (one customer orders same product multiple times)
     //return this?.customers.flatMap { it.orders.filter { it.products.contains(product) } }.count()
-    
+
     return this.customers.flatMap {
         val orderedProducts = it.orders.flatMap { it.products }
         listOf(orderedProducts.filter { it.equals(product) }.count())
