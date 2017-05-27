@@ -5,9 +5,8 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
         // normalize in terms of days (do not need calendar precision)
         val thisDate = (this.year * 365) + (this.month * 31) + this.dayOfMonth
         val thatDate = (other.year * 365) +(other.month * 31) + other.dayOfMonth
-        if( thisDate == thatDate ) return 0
-        else if( thisDate < thatDate ) return -1
-        return 1
+
+        return thisDate - thatDate
     }
 }
 
